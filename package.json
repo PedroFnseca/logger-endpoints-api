@@ -1,14 +1,29 @@
 {
-  "name": "logger-api",
+  "name": "logger-endpoints-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Logger endpoints API for the logger app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "logger",
+    "endpoints",
+    "api",
+    "exprees",
+    "nodejs",
+    "javascript",
+    "rest",
+    "restful",
+    "restful api",
+    "rest api"
+  ],
+  "author": "pedrofnseca",
   "license": "ISC",
+  "homepage": "https://github.com/PedroFnseca/logger-endpoints-api",
+  "bugs": {
+    "url": "https://github.com/PedroFnseca/logger-endpoints-api/issues"
+  },
   "dependencies": {
     "chalk": "^5.3.0"
   }
