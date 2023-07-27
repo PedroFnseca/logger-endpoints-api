@@ -1,6 +1,6 @@
 {
   "name": "logger-endpoints-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Logger endpoints API for the logger app",
   "main": "index.js",
   "scripts": {
