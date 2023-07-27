@@ -32,3 +32,13 @@ app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });
 ```
+
+<br>
+
+## Output
+Example in Express application
+
+<p align="center">
+<img src="https://github.com/PedroFnseca/logger-endpoints-api/assets/97262778/4d4f22a9-29fa-412c-a4ed-2734cb1e6ddf">
+</p>
+
