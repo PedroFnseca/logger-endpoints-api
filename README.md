@@ -15,9 +15,23 @@ npm i logger-endpoints-api
 ## Usage
 basic usage
 
-<p align="center">
-  <img width="750" src="https://github.com/PedroFnseca/logger-endpoints-api/assets/97262778/bae8812a-2317-46ca-8eae-ec87d014b9c3">
-</p>
+```js
+const express = require('express');
+const app = express();
+const logger = require('logger-endpoints-api');
+
+// ... Your Express app setup ...
+
+// Add the logger middleware before your routes
+app.use(logger);
+
+// ... Your routes and other middleware ...
+
+// Start the server
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+```
 
 <br>
 
