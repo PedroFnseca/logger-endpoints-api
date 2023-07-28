@@ -1,6 +1,6 @@
 {
   "name": "logger-endpoints-api",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Logger endpoints API for the logger app",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,11 @@
     "rest",
     "restful",
     "restful api",
-    "rest api"
+    "rest api",
+    "express",
+    "expressjs",
+    "fastify",
+    "fastifyjs"
   ],
   "author": "pedrofnseca",
   "license": "ISC",
@@ -27,5 +31,8 @@
   "dependencies": {
     "chalk": "^5.3.0"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@types/express": "^4.17.17"
+  }
 }

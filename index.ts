@@ -1,12 +1,13 @@
 import chalk from 'chalk';
+import { Request, Response, NextFunction } from 'express';
 
-const logger = (req, res, next) => {
+const logger = (req: Request, res: Response, next: NextFunction): void => {
   const start = Date.now();
 
   const method = req.method;
   const url = req.url;
 
-  let methodColor;
+  let methodColor: string;
 
   if (method === 'GET') {
     methodColor = chalk.green(method);
@@ -25,14 +26,14 @@ const logger = (req, res, next) => {
   res.on('finish', () => {
     const elapsed = Date.now() - start;
     const statusCode = res.statusCode;
-    let statusColor;
+    let statusColor: string;
 
     if (statusCode >= 200 && statusCode < 300) {
-      statusColor = chalk.green(statusCode);
+      statusColor = chalk.green(statusCode.toString());
     } else if (statusCode >= 300 && statusCode < 400) {
-      statusColor = chalk.yellow(statusCode);
+      statusColor = chalk.yellow(statusCode.toString());
     } else {
-      statusColor = chalk.red(statusCode);
+      statusColor = chalk.red(statusCode.toString());
     }
 
     console.log(`[${methodColor}] ${url} ${statusColor} ${elapsed}ms`);

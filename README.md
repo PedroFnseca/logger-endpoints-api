@@ -13,7 +13,7 @@ npm i logger-endpoints-api
 <br>
 
 ## Usage
-basic usage
+basic usage in express
 
 ```js
 const express = require('express');
