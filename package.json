@@ -1,11 +1,11 @@
 {
   "name": "logger-endpoints-api",
-  "version": "1.0.9",
+  "version": "1.2.2",
   "description": "Logger endpoints API for the logger app",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node lib/index.js"
+    "start": "node index.js"
   },
   "keywords": [
     "logger",
