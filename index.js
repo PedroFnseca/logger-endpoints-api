@@ -1,49 +1,37 @@
-import chalk from 'chalk';
+const METHOD_COLORS = {
+    GET: '\x1b[32m',   // Green
+    POST: '\x1b[34m',  // Blue
+    PUT: '\x1b[35m',   // Magenta
+    PATCH: '\x1b[35m', // Magenta
+    DELETE: '\x1b[31m' // Red
+};
+
+const STATUS_COLORS = {
+    success: '\x1b[32m',  // 2xx - Green
+    redirect: '\x1b[33m', // 3xx - Amarelo
+    error: '\x1b[31m'     // 4xx e 5xx - Red
+};
 
 const logger = (req, res, next) => {
-    const start = Date.now();
+    const start = performance.now();
+    const { method, url } = req;
 
-    const method = req.method;
-    const url = req.url;
-
-    let methodColor;
-
-    if (method === 'GET') {
-        methodColor = chalk.green(method);
-    }
-    else if (method === 'POST') {
-        methodColor = chalk.blue(method);
-    }
-    else if (method === 'PUT' || method === 'PATCH') {
-        methodColor = chalk.magenta(method);
-    }
-    else if (method === 'DELETE') {
-        methodColor = chalk.red(method);
-    }
-    else {
-        methodColor = method;
-    }
-
-    console.log(`[${methodColor}] ${url}`);
+    const methodColor = METHOD_COLORS[method] || '';
+    console.log(`[${methodColor}${method}\x1b[0m] ${url}`);
 
     res.on('finish', () => {
-        const elapsed = Date.now() - start;
+        const elapsed = (performance.now() - start).toFixed(2);
         const statusCode = res.statusCode;
 
-        let statusColor;
-        if (statusCode >= 200 && statusCode < 300) {
-            statusColor = chalk.green(statusCode.toString());
-        }
-        else if (statusCode >= 300 && statusCode < 400) {
-            statusColor = chalk.yellow(statusCode.toString());
-        }
-        else {
-            statusColor = chalk.red(statusCode.toString());
-        }
+        const statusColor = 
+            statusCode < 300 ? STATUS_COLORS.success : 
+            statusCode < 400 ? STATUS_COLORS.redirect : 
+            STATUS_COLORS.error;
 
-        console.log(`[${methodColor}] ${url} ${statusColor} ${elapsed}ms`);
+        console.log(`[${methodColor}${method}\x1b[0m] ${url} ${statusColor}${statusCode}\x1b[0m - ${elapsed}ms`);
     });
+
     next();
 };
 
-export default logger;
+module.exports = logger;
